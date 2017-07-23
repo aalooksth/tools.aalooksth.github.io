@@ -1,0 +1,86 @@
+
+<div align="center">
+	<div id="countup">
+		It's been
+		<p id="years">00</p> years
+		<p id="days">00</p> days
+		<p id="hours">00</p> hours
+		<p id="minutes">00</p> minutes
+		<p id="seconds">00</p> second
+		we commenced B.Sc.CSIT.
+	</div>
+
+	<div id="countdown">
+		TU has
+		<p id="cyears">00</p> years
+		<p id="cdays">00</p> days
+		<p id="chours">00</p> hours
+		<p id="cminutes">00</p> minutes
+		<p id="cseconds">00</p> second
+		to complete the course.
+	</div>
+	Remaining <p>1 </p> semesters.
+</div>
+<style type="text/css">
+	p {
+		display: inline-block;
+		padding: 5px;
+		background: #FFA500;
+		margin: 0 0 20px;
+	}
+
+</style>
+<script type="text/javascript">
+	window.onload=function() {
+  // Month,Day,Year,Hour,Minute,Second
+  upTime('oct,20,2013,00:00:00'); // ****** Change this line!
+  downTime('oct,19,2017,23:59:59');
+}
+function upTime(countTo) {
+	now = new Date();
+	countTo = new Date(countTo);
+	difference = (now-countTo);
+
+	days=Math.floor(difference/(60*60*1000*24)*1);
+	years = Math.floor(days / 365);
+	if (years > 1){ 
+		days = days - (years * 365)
+	}
+	hours=Math.floor((difference%(60*60*1000*24))/(60*60*1000)*1);
+	mins=Math.floor(((difference%(60*60*1000*24))%(60*60*1000))/(60*1000)*1);
+	secs=Math.floor((((difference%(60*60*1000*24))%(60*60*1000))%(60*1000))/1000*1);
+
+	document.getElementById('years').firstChild.nodeValue = years;
+	document.getElementById('days').firstChild.nodeValue = days;
+	document.getElementById('hours').firstChild.nodeValue = hours;
+	document.getElementById('minutes').firstChild.nodeValue = mins;
+	document.getElementById('seconds').firstChild.nodeValue = secs;
+
+	clearTimeout(upTime.to);
+	upTime.to=setTimeout(function(){ upTime(countTo); },1000);
+}
+
+function downTime(countTo) {
+	now = new Date();
+	countTo = new Date(countTo);
+	difference = -(now-countTo);
+
+	days=Math.floor(difference/(60*60*1000*24)*1);
+	years = Math.floor(days / 365);
+	if (years > 1){ 
+		days = days - (years * 365)
+	}
+	hours=Math.floor((difference%(60*60*1000*24))/(60*60*1000)*1);
+	mins=Math.floor(((difference%(60*60*1000*24))%(60*60*1000))/(60*1000)*1);
+	secs=Math.floor((((difference%(60*60*1000*24))%(60*60*1000))%(60*1000))/1000*1);
+
+	document.getElementById('cyears').firstChild.nodeValue = years;
+	document.getElementById('cdays').firstChild.nodeValue = days;
+	document.getElementById('chours').firstChild.nodeValue = hours;
+	document.getElementById('cminutes').firstChild.nodeValue = mins;
+	document.getElementById('cseconds').firstChild.nodeValue = secs;
+
+	clearTimeout(downTime.to);
+	downTime.to=setTimeout(function(){ downTime(countTo); },1000);
+}
+</script>
