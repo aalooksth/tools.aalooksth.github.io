@@ -1,37 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-<div align="center">
-	<div id="countup">
-		It's been
-		<p id="years">00</p> years
-		<p id="days">00</p> days
-		<p id="hours">00</p> hours
-		<p id="minutes">00</p> minutes
-		<p id="seconds">00</p> second
-		we commenced B.Sc.CSIT.
-	</div>
+	<meta name="author" content="Script Tutorials" />
+	<title>Alok Shrestha</title>
+	<!-- attach CSS styles -->
+	<link href="css/style.css" rel="stylesheet" />
 
-	<div id="countdown">
-		TU has
-		<p id="cyears">00</p> years
-		<p id="cdays">00</p> days
-		<p id="chours">00</p> hours
-		<p id="cminutes">00</p> minutes
-		<p id="cseconds">00</p> second
-		to complete the course.
-	</div>
-	Remaining <p>1 </p> semesters.
-</div>
-<style type="text/css">
-	p {
-		display: inline-block;
-		padding: 5px;
-		background: #FFA500;
-		margin: 0 0 20px;
-	}
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-</style>
-<script type="text/javascript">
-	window.onload=function() {
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+</head>
+<body>
+	<!--  BODY PAGE CONTENT -->
+	<!-- navigation panel -->
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href=".">Alok Shrestha</a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse-main">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#services">Services</a></li>
+					<li><a href="#information">Information</a></li>
+					<li><a href="bsccsit.html">B.Sc. CSIT</a></li>
+					<li><a href="#google_map">Contact</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
+	<section id="counter" align="center">
+		<div id="countup">
+			It's been
+			<p id="years">00</p> years
+			<p id="days">00</p> days
+			<p id="hours">00</p> hours
+			<p id="minutes">00</p> minutes
+			<p id="seconds">00</p> second
+			we commenced B.Sc.CSIT.
+		</div>
+
+		<div id="countdown">
+			TU has
+			<p id="cyears">00</p> years
+			<p id="cdays">00</p> days
+			<p id="chours">00</p> hours
+			<p id="cminutes">00</p> minutes
+			<p id="cseconds">00</p> second
+			to complete the course. <br/>
+			Remaining <p>1 </p> semesters.
+		</div>
+		
+	</section>
+	<style type="text/css">
+		#countup p, #countdown p {
+			display: inline-block;
+			padding: 5px;
+			background: #FFA500;
+			margin: 0 0 20px;
+		}
+
+	</style>
+	<script type="text/javascript">
+		window.onload=function() {
   // Month,Day,Year,Hour,Minute,Second
   upTime('oct,20,2013,00:00:00'); // ****** Change this line!
   downTime('oct,19,2017,23:59:59');
@@ -84,3 +132,26 @@ function downTime(countTo) {
 	downTime.to=setTimeout(function(){ downTime(countTo); },1000);
 }
 </script>
+
+
+<!-- footer -->
+<footer>
+	<hr />
+	<div class="container">
+		<p class="text-right">Copyright &copy; Alok Shrestha 2017</p>
+	</div>
+</footer>
+<!-- /footer -->
+
+<!-- attach JavaScripts -->
+<script src="//maps.google.com/maps/api/js?sensor=true"></script>
+<script src="js/main.js"></script>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
+
