@@ -52,3 +52,5 @@ exclude:
 - LICENSE
 - Gemfile
 - Gemfile.lock
+- ./docs/
+- ./backup_files/
