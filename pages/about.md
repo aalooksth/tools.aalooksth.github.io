@@ -20,4 +20,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </div>
 
 # Thanks
-- [portfolYOU Jekyll theme by Youssef Raafat] https://github.com/YoussefRaafatNasry/portfolYOU
+- [portfolYOU Jekyll theme by Youssef Raafat](https://github.com/YoussefRaafatNasry/portfolYOU) for Jekyll Theme

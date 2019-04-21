@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: none
 title: Elements
 permalink: /elements/
 weight: 4

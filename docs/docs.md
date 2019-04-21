@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: none
 title: Docs
+permalink: /docs/
 ---
 
 # **About portfolYOU** <small class="text-muted">{{ site.github.latest_release.tag_name }}</small>
