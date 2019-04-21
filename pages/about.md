@@ -18,3 +18,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <div class="row">
 {% include timeline.html %}
 </div>
+
+# Thanks
+- [portfolYOU Jekyll theme by Youssef Raafat] https://github.com/YoussefRaafatNasry/portfolYOU
