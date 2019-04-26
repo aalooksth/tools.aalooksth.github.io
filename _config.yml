@@ -25,20 +25,20 @@ author:
   facebook : aalooksth
 
 
-# Collections
-#collections:
-#  projects:
-#     output: true
-#     permalink: /projects/:name
+#Collections
+collections:
+ projects:
+    output: true
+    permalink: /projects/:name
 
 
-# # Default values for collections
-# defaults:
-#   - scope:
-#       path: ""
-#       type: "projects"
-#     values:
-#       layout: "page"
+# Default values for collections
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "page"
 
 
 # Posts default Permalink

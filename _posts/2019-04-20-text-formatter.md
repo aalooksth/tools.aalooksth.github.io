@@ -13,4 +13,4 @@ I have made a WYSIWYG editor for my works and would lve to share it to public.
 
 It's easy to use, with tooldbar buttons and shortcuts.
 
-Check out the editor in [Projects]("/projects").
+Check out the editor in [Projects](/projects).
