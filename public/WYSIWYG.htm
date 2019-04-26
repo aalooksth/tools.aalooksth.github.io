@@ -9,7 +9,8 @@ layout: page
 <div id="subject"></div> <!-- For email Subject -->
 
 <!-- Create the editor container -->
-<h3>Body<button onclick="share();">Get link and copy link to this!</button></h3>
+<h3>Body</h3>
+<button onclick="share();">Get link and copy link to this!</button>
 
 <!-- Link -->
 <div id="link"></div>
@@ -36,7 +37,7 @@ layout: page
 	url = window.location.href
 	params = getParams(url);
 	if ('s' in params){
-		document.getElementById('subject').innerHTML = '<h3>Subject</h3><textarea rows="4" cols="150">'+params['s']+'</textarea>';}
+		document.getElementById('subject').innerHTML = '<h3>Subject</h3><textarea rows="2" cols="100">'+params['s']+'</textarea>';}
 	if ('b' in params){
 		document.getElementById('editor').innerHTML = params['b'];}
 	else{
@@ -136,7 +137,7 @@ layout: page
 		// params = getParams(url);
 		var urlf = url.split('?')[0]+"?b="+encodeURIComponent(document.getElementsByClassName('ql-editor')[0].innerHTML);
 		subj = (document.getElementById('subject').innerHTML).toString()
-		subj2 = subj.replace('<h3>Subject</h3><textarea rows="4" cols="150">',"").replace('</textarea>',"");
+		subj2 = subj.replace('<h3>Subject</h3><textarea rows="2" cols="100">',"").replace('</textarea>',"");
 		console.log(subj)
 		if (subj!='') {
 			urlf = urlf+"&s="+encodeURIComponent(subj);
