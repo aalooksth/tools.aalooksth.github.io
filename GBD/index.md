@@ -1,4 +1,4 @@
----//alokshrestha.tk/GBD/show-lunch.js
+---
 ---
 Welcome to GBD tools page!
 
