@@ -1,6 +1,6 @@
 ---
 ---
-# GrowByData Resources
+<h1> GrowByData Resources </h1>
 > If you are not a part of GBD, please turn back. Any attempt to use the information, the contents and links in this page is considered misuse and may be subject to legal action.
 
 > For all part of GBD, you can read and benefit.
@@ -35,9 +35,9 @@ So here I present you the link for GBD Task Log that works for the current taskl
 > Link: [Show lunch price and today's menu](javascript:(function()%20%7B%20var%20s%20=%20document.createElement(%22script%22);%20s.setAttribute(%22id%22,%20%22bitmark_js%22);%20s.setAttribute(%22type%22,%20%22text/javascript%22);%20s.setAttribute(%22src%22,%20%22//alokshrestha.tk/GBD/show-lunch.js%22);%20(top.document.body%20%7C%7C%20top.document.getElementsByTagName(%22head%22)[0]).appendChild(s);%20%7D)();) 
 > Drag the above to your toolbar and Press it on the portal dashboard
 
-How much have you left to pay?
-What was the dish today for lunch?
-Do you feel need to see what the luunch may be tomorrow?
+- How much have you left to pay?
+- What was the dish today for lunch?
+- Do you feel need to see what the luunch may be tomorrow?
 
 Since after 10:30 am everything disappears, this tool will make them visible anytime during the day. Just drag the above link to your bookmark and press it when you are on portal dashboard.
 
