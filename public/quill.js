@@ -9235,7 +9235,7 @@ var Bold = function (_Inline) {
 }(_inline2.default);
 
 Bold.blotName = 'bold';
-Bold.tagName = ['STRONG', 'B'];
+Bold.tagName = ['B','STRONG'];
 
 exports.default = Bold;
 
