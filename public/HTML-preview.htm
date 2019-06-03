@@ -1,0 +1,38 @@
+---
+layout: page
+---
+	<title>HTML Preview</title>
+	<script src="./HTML-preview_files/js-quicktags.js.download" type="text/javascript"></script>
+		
+	<script type="text/javascript">
+		var old = '';
+		function update()
+		{
+			var textarea = document.f.ta;
+			var d = parent.dynamicframe.document; 
+			if (old != textarea.value)
+			{
+				old = textarea.value;
+				d.open();
+				d.write(old);
+				d.close();
+			}
+			window.setTimeout(update, 150);
+		}
+	</script>
+</head>
+
+<body onload="update(); document.f.ta.select();">
+	<form name="f" method="post" target="dynamicframe">
+
+		<script type="text/javascript">edToolbar('canvas');</script><span></div>
+
+		<table style="width: 100%;"><tr>
+			<td style="width: 50%;"><textarea id="canvas" name="ta" rows="100" cols="100"> <!-- HTML goes here --> </textarea></td>
+			<td><iframe name="dynamicframe" id="dynamicframe" src="javascript:&#39;-&#39;"></iframe></td>
+		</tr></table>
+
+	</form>
+
+</body>
+</html>
