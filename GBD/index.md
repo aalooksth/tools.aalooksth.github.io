@@ -32,7 +32,7 @@ So here I present you the link for GBD Task Log that works for the current taskl
 - Any Month's (Append ?old=mmyy where mmyy is two digit month and year; Example for Dec 2018): [https://alokshrestha.tk/GBD/GBD-Tasklog.htm?old=1218](https://alokshrestha.tk/GBD/GBD-Tasklog.htm?old=1218) *(Who knows you may require this.)*
 
 ## Show lunch price and today's menu
-> Link: [Show lunch price and today's menu](javascript:(function()%20%7B%20var%20s%20=%20document.createElement(%22script%22);%20s.setAttribute(%22id%22,%20%22bitmark_js%22);%20s.setAttribute(%22type%22,%20%22text/javascript%22);%20s.setAttribute(%22src%22,%20%22//alokshrestha.tk/GBD/show-lunch.js%22);%20(top.document.body%20%7C%7C%20top.document.getElementsByTagName(%22head%22)[0]).appendChild(s);%20%7D)();) 
+> Link: [Show lunch price and today's menu](javascript:(function()%20%7B%20var%20s%20=%20document.createElement(%22script%22);%20s.setAttribute(%22id%22,%20%22bitmark_js%22);%20s.setAttribute(%22type%22,%20%22text/javascript%22);%20s.setAttribute(%22src%22,%20%22//aloks.com.np/GBD/show-lunch.js%22);%20(top.document.body%20%7C%7C%20top.document.getElementsByTagName(%22head%22)[0]).appendChild(s);%20%7D)();) 
 > Drag this link to your toolbar and Press it on the portal dashboard
 
 - How much have you left to pay?
