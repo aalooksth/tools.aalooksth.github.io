@@ -1,0 +1,136 @@
+---
+layout:page
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BS AD convertor</title>
+
+</head>
+<body>
+	<form action="" method="GET">
+		<input type="number" name="y" min="1943" max="2090"><input type="number" name="m" min="1" max="12"><input type="number" name="d" min="1" max="32"><select name="loc"><option>BS</option><option>AD</option></select><input type="Submit">
+	</form>
+	<input type="text" disabled="" id="result">
+	
+	<script type="text/javascript">	
+		var a = {
+			0:[30,32,31,32,31,30,30,30,29,30,29,31],
+			1:[31,31,32,31,31,31,30,29,30,29,30,30],
+			2:[31,31,32,32,31,30,30,29,30,29,30,30],
+			3:[31,32,31,32,31,30,30,30,29,29,30,31],
+			4:[31,31,31,32,31,31,29,30,30,29,29,31],
+			5:[31,31,31,32,31,31,29,30,30,29,30,30],
+			6:[31,32,31,32,31,30,30,29,30,29,30,30],
+			7:[31,32,31,32,31,30,30,30,29,30,29,31],
+			8:[31,31,31,32,31,31,30,29,30,29,30,30],
+			9:[31,32,31,32,31,30,30,30,29,29,30,30],
+			10:[31,31,32,31,32,30,30,29,30,29,30,30],
+			11:[30,32,31,32,31,31,29,30,30,29,29,31],
+			12:[30,32,31,32,31,31,29,30,29,30,29,31],
+			13:[30,32,31,32,31,30,30,30,29,30,30,30],
+			14:[31,31,32,32,31,30,30,30,29,30,30,30],
+			15:[31,31,32,31,31,30,30,30,29,30,30,30],
+			16:[31,32,31,32,30,31,30,30,29,30,30,30],
+			17:[31,31,32,31,31,31,30,30,29,30,30,30],
+			18:[30,31,32,32,30,31,30,30,29,30,30,30]
+		}
+		var s ={
+			2000:a[0],2001:a[1],2002:a[2],2003:a[3],2004:a[0],
+			2005:a[1],2006:a[2],2007:a[3],2008:a[4],2009:a[1],
+			2010:a[2],2011:a[3],2012:a[5],2013:a[1],2014:a[2],
+			2015:a[3],2016:a[5],2017:a[1],2018:a[6],2019:a[7],
+			2020:a[8],2021:a[1],2022:a[9],2023:a[7],2024:a[8],
+			2025:a[1],2026:a[3],2027:a[0],2028:a[1],2029:a[10],
+			2030:a[3],2031:a[0],2032:a[1],2033:a[2],2034:a[3],
+			2035:a[11],2036:a[1],2037:a[2],2038:a[3],2039:a[5],
+			2040:a[1],2041:a[2],2042:a[3],2043:a[5],2044:a[1],
+			2045:a[6],2046:a[3],2047:a[8],2048:a[1],2049:a[9],
+			2050:a[7],2051:a[8],2052:a[1],2053:a[9],2054:a[7],
+			2055:a[1],2056:a[10],2057:a[3],2058:a[0],2059:a[1],
+			2060:a[2],2061:a[3],2062:a[12],2063:a[1],2064:a[2],
+			2065:a[3],2066:a[4],2067:a[1],2068:a[2],2069:a[3],
+			2070:a[5],2071:a[1],2072:a[6],2073:a[3],2074:a[8],
+			2075:a[1],2076:a[9],2077:a[7],2078:a[8],2079:a[1],
+			2080:a[9],2081:a[14],2082:a[13],2083:a[15],2084:a[15],
+			2085:a[16],2086:a[13],2087:a[17],2088:a[18],2089:a[13],
+			2090:a[13]
+		}
+		var url = new URL(window.location.href);
+		var y = url.searchParams.get("y");
+		var m = url.searchParams.get("m");
+		var d = url.searchParams.get("d");
+		var l = url.searchParams.get("loc");
+
+		const arrSum = arr => arr.reduce((a,b) => a + b, 0)
+
+		function validate(y,m,d,l){
+			if (l=="BS"){
+				return (d <= s[y][m-1] ? true: false);
+			}else{
+				if(y>=1943&&m>=4&&d>=13) {
+					return true
+				}
+			}
+			return false
+		}
+
+		function getDaysDiff(b_y,b_m,b_d,y,m,d){
+			days=d-b_d
+			for (var i = b_y; i <= y; i++) {
+				bb= i==b_y ? b_m-1: 0;
+				mm= i==y ? m-1: 12;
+
+				for (var j = bb; j <mm; j++) {
+					days+=s[i][j];
+				}
+			}
+			return days;
+		}
+
+		function addDays(b_y,b_m,b_d,days){
+			days += b_d;
+			for (var i = b_y; true; i++) {
+				bb= i==b_y ? b_m: 0;
+				for (var j = bb; j <12; j++) {
+					if (days>=s[i][j])
+					{
+						days-=s[i][j];
+					}else{
+						break;
+					}
+				}
+				if (days<s[i][j])
+				{break;}
+			}
+			return i+'-'+(j||b_m)+'-'+(days||b_d);
+		}
+
+		function convert(y,m,d,l){
+			if (validate(y,m,d,l))
+			{
+				if (l=="BS") {
+					days = getDaysDiff(2000,1,1,y,m,d);
+					console.log(days)
+					result = new Date(1943,4-1,14);
+					result.setDate(result.getDate() + days);
+					return(result.getFullYear()+"-"+(result.getMonth()+1)+"-"+result.getDate());
+				}else{
+					days = Math.ceil((new Date(y,m-1,d) - new Date(1943,4-1,14)) / (86400*1000));
+					console.log(days)
+					return addDays(2000,1,1,days)
+				}
+			}else{
+				return "Error in Date BS: 2000-2090 AD:1943.4.13-2034.4.13"
+			}
+		}
+
+		document.getElementById('result').value=convert(y,m,d,l);
+		console.log("Converted!")
+		document.getElementsByName('y')[0].value=y;
+		document.getElementsByName('m')[0].value=m;
+		document.getElementsByName('d')[0].value=d;
+		document.getElementsByName('loc')[0].value=l;
+	</script>
+</body>
+</html>
