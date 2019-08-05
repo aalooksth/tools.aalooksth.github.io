@@ -13,7 +13,7 @@
 		txt = document.createTextNode(text); // create text node
 		div.appendChild(txt);                    // append text node to the DIV
 		div.setAttribute('style', style);
-		cell.appendChild(div);                   // append DIV to the table cell
+		cell.appendChild(txt);                   // append DIV to the table cell
 	}
 
 	// append column to the HTML table
