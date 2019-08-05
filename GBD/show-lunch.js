@@ -19,15 +19,16 @@
 	// append column to the HTML table
 	function appendColumn() {
 		var tbl = document.getElementById('orderTable'), // table reference
-			i, total;
+			i, total=0;
 		// open loop for each row and append cell
 		for (i = 0; i < tbl.rows.length; i++) {
 			price = parseFloat(tbl.rows[i].cells[3].innerHTML) ||0;
 			unit = parseFloat(tbl.rows[i].cells[2].innerHTML) ||0;
 			total += price*unit;
+			console.log(total);
 			createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), unit*price,tbl.rows[i].cells[2].getAttribute('class'));
 		}
-		console.log(total);
+		console.log(tbl.rows[0].cells.length-1);
 		tbl.rows[0].cells[tbl.rows[0].cells.length-1].innerhtml=total;
 	}
 
