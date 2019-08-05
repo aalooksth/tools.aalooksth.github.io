@@ -8,27 +8,26 @@
 	}
 	
 	// create DIV element and append to the table cell
-	function createCell(cell, text, style) {
+	function createCell(cell, text, style='') {
 		var div = document.createElement('div'), // create DIV element
-			txt = document.createTextNode(text); // create text node
+		txt = document.createTextNode(text); // create text node
 		div.appendChild(txt);                    // append text node to the DIV
-		div.setAttribute('class', style);        // set DIV class attribute
-		div.setAttribute('className', style);    // set DIV class attribute for IE (?!)
+		div.setAttribute('style', style);
 		cell.appendChild(div);                   // append DIV to the table cell
 	}
 
 	// append column to the HTML table
 	function appendColumn() {
 		var tbl = document.getElementById('orderTable'), // table reference
-			i;
+			i, total;
 		// open loop for each row and append cell
 		for (i = 0; i < tbl.rows.length; i++) {
 			price = parseFloat(tbl.rows[i].cells[3].innerHTML) ||0;
 			unit = parseFloat(tbl.rows[i].cells[2].innerHTML) ||0;
-			
-			console.log(price);
-			createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), unit*price,'col');
+			total += price*unit;
+			createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), unit*price,tbl.rows[i].cells[2].getClass());
 		}
+		createCell(tbl.rows[0].insertCell(tbl.rows[0].cells.length), total,'font-weight: bold;');
 	}
 
 	appendColumn();
