@@ -3,7 +3,8 @@
 		var s = document.getElementById("lunch-form");
 		s.setAttribute("style", "");
 	} catch (err) {
-	    console.error(err); // will log the error with the error stack
+	    //console.error(err); // will log the error with the error stack
+		console.log("")
 	}
 	
 	// create DIV element and append to the table cell
