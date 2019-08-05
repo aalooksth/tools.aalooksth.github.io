@@ -27,7 +27,7 @@
 			total += price*unit;
 			createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), unit*price,tbl.rows[i].cells[2].getAttribute('class'));
 		}
-		createCell(tbl.rows[0].insertCell(tbl.rows[0].cells.length), total,'font-weight: bold;');
+		tbl.rows[0].cells[tbl.rows[0].cells.length-1].innerhtml=total;
 	}
 
 	appendColumn();
