@@ -23,8 +23,8 @@
 			i;
 		// open loop for each row and append cell
 		for (i = 0; i < tbl.rows.length; i++) {
-			price = parseInt(tbl.rows[i].cells[3].innerHTML) ||0;
-			unit = parseInt(tbl.rows[i].cells[2].innerHTML) ||0;
+			price = parseFloat(tbl.rows[i].cells[3].innerHTML) ||0;
+			unit = parseFloat(tbl.rows[i].cells[2].innerHTML) ||0;
 			
 			console.log(price);
 			createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), unit*price,'col');
