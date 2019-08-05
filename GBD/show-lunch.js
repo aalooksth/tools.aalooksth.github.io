@@ -22,9 +22,11 @@
 			i;
 		// open loop for each row and append cell
 		for (i = 0; i < tbl.rows.length; i++) {
-			test = parseInt(tbl.rows[i].cells[3].innerHTML) ||1123;
+			price = parseInt(tbl.rows[i].cells[3].innerHTML) ||0;
+			unit = parseInt(tbl.rows[i].cells[2].innerHTML) ||0;
+			
 			console.log(test);
-			createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), i,'col');
+			createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), unit*price,'col');
 		}
 	}
 
