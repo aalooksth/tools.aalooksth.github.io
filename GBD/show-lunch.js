@@ -26,7 +26,7 @@
 			price = parseInt(tbl.rows[i].cells[3].innerHTML) ||0;
 			unit = parseInt(tbl.rows[i].cells[2].innerHTML) ||0;
 			
-			console.log(test);
+			console.log(price);
 			createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), unit*price,'col');
 		}
 	}
