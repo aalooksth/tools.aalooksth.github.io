@@ -4,7 +4,7 @@
 		s.setAttribute("style", "");
 	} catch (err) {
 	    //console.error(err); // will log the error with the error stack
-		console.log("")
+		console.log("Lunch price box not detected.")
 	}
 	
 	// create DIV element and append to the table cell
@@ -27,6 +27,7 @@
 			total += price*unit;
 			createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), unit*price,tbl.rows[i].cells[2].getAttribute('class'));
 		}
+		console.log(total);
 		tbl.rows[0].cells[tbl.rows[0].cells.length-1].innerhtml=total;
 	}
 
