@@ -1,0 +1,41 @@
+
+@media print{
+	@page {
+		size: a4 potrait; 
+		margin: 1in;
+
+		@top-center {
+			content: "Alok Shrestha";
+		}
+
+		@bottom-right {
+			content: "Page " counter(page);
+		}
+	}
+
+	pre{
+		display: none;
+	}
+
+	a:after {
+		content: ": "attr(href)
+	}
+
+	h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
+
+	header:before {
+		display: block;
+		content: "Thank you for printing our content at www.smashing-winery.com. Please check back soon for new offers on delicious wine from our winery.";
+		margin-bottom: 10px;
+		border: 1px solid #bbb;
+		padding: 3px 5px;
+		font-style: italic;
+	}
+
+	body {
+		font-family: Georgia, serif;
+		background: none;
+		color: black;
+	}
+
+}
