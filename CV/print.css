@@ -1,44 +1,4 @@
-/*body {
-    background: #000;
-    filter: invert(1) hue-rotate(210deg);
-}*/
-body{
- 	margin: auto; /*Center */
-	padding: 20px;
-	text-align: justify;
-	max-width: 800px;
-	border: solid 1px;
-}
-h1{
-	text-align: center;
-}
-
-img{
-	max-width: 500px;
-}
-
-label:hover::after {
-	content: "Click to show/hide details";
-	font-weight: normal;
-	
-	position: relative;
-	border: 1px #808080 solid ;
-	border-radius: 6px;
-	background-color: white;
-  	color: #333;
-	padding: 5px 3px;
-	right: 1px;
-	z-index: 1 ;
-}
-input[type="checkbox"]:checked ~.whole_content{
-	display: block;
-}
-input[type="checkbox"]:checked, .whole_content {
-	display: none;
-}
-
-@media print{
-	@page {
+@page {
 		size: A4 portrait; 
 		margin: 0.75 in;
 
@@ -99,5 +59,3 @@ input[type="checkbox"]:checked, .whole_content {
 	    padding-left: 10px;
 	    padding-right: 0px;
 	}
-
-}
