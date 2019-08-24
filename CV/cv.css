@@ -2,32 +2,38 @@
     background: #000;
     filter: invert(1) hue-rotate(210deg);
 }*/
+body{
+	margin: auto;
+	padding: 20px;
+	text-align: justify;
+	max-width: 800px;
+	border: solid 1px;
+}
 
-label:after {
-	content: " < Click to show/hide details";
+label:hover::after {
+	content: "Click to show/hide details";
 	font-weight: normal;
-	color: gray;
+	
+	position: relative;
+	border: 1px #808080 solid ;
+	border-radius: 6px;
+	background-color: white;
+  	color: #333;
+	padding: 5px 3px;
+	right: 1px;
+	z-index: 1 ;
 }
-.clicker_bx:checked ~.whole_content {
+input[type="checkbox"]:checked ~.whole_content{
+	display: block;
+}
+input[type="checkbox"]:checked, .whole_content {
 	display: none;
 }
-.clicker_bx {
-	display: none;
-}
-
-ul {
-	margin-left: 5px;
-    margin-right: 0px;
-    padding-left: 10px;
-    padding-right: 0px;
-}
-
-
 
 @media print{
 	@page {
 		size: A4 portrait; 
-		margin: 1in;
+		margin: 0.75 in;
 
 		@top-center {
 			content: "Alok Shrestha";
@@ -37,8 +43,16 @@ ul {
 			content: "Page " counter(page);
 		}
 	}
+	body {
+		margin: 0;
+		padding: 0;
+		border: none;
 
-	pre, label:after{
+	    background: #FFF;
+	    filter: invert(0) hue-rotate(150deg);
+	}
+
+	.noprint, label:after, input[type='checkbox']{
 		display: none;
 	}
 
@@ -54,19 +68,29 @@ ul {
 
 	h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
 
-	header:before {
+	h1:after {
 		display: block;
-		content: "Thank you for printing our content at www.smashing-winery.com. Please check back soon for new offers on delicious wine from our winery.";
+		content: "This CV was printed from aloks.com.np/CV. Please check the same for updated CV.";
 		margin-bottom: 10px;
 		border: 1px solid #bbb;
 		padding: 3px 5px;
 		font-style: italic;
+
+		font-weight: normal;
+		font-size: 12px;
 	}
 
 	body {
 		font-family: Cambria, serif;
 		background: none;
 		color: black;
+	}
+
+	ul {
+		margin-left: 5px;
+	    margin-right: 0px;
+	    padding-left: 10px;
+	    padding-right: 0px;
 	}
 
 }
