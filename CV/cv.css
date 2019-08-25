@@ -9,8 +9,48 @@ body{
 	max-width: 800px;
 	border: solid 1px;
 }
-h1{
+
+h1, h1+ address{
 	text-align: center;
+}
+
+address{
+	font-style: normal;
+	display: inline;
+}
+
+address ul li{
+	list-style: none;
+	display: inline-block;
+}
+
+address ul li:first-child{ display: block; }
+address ul li:before { content: "| "; }
+address ul li:first-child:before, address ul li:nth-child(2):before { content: ""; }
+
+def:after{
+	content: ": ";
+}
+
+def{
+	font-weight: bold;
+}
+
+.noprint{
+	border: dotted;
+	color: gray;
+	font-size: 0.75em;
+}
+
+/* section date{
+	display: block;
+} */
+
+section date:before{
+	content: " | ";
+}
+section grade{
+	float: right;
 }
 
 img{
@@ -25,79 +65,16 @@ label:hover::after {
 	border: 1px #808080 solid ;
 	border-radius: 6px;
 	background-color: white;
-  	color: #333;
+  color: #333;
 	padding: 5px 3px;
 	right: 1px;
-	z-index: 1 ;
+	z-index: 1;
 }
+
 input[type="checkbox"]:checked ~.whole_content{
 	display: block;
 }
+
 input[type="checkbox"]:checked, .whole_content {
 	display: none;
-}
-
-@media print{
-	@page {
-		size: A4 portrait; 
-		margin: 0.75 in;
-
-		@top-center {
-			content: "Alok Shrestha";
-		}
-
-		@bottom-right {
-			content: "Page " counter(page);
-		}
-	}
-	body {
-		margin: 0;
-		padding: 0;
-		border: none;
-
-	    background: #FFF;
-	    filter: invert(0) hue-rotate(150deg);
-	}
-
-	.noprint, label:after, input[type='checkbox'], img{
-		display: none;
-	}
-
-	a:after {
-		content: ": " attr(value);
-	}
-
-	a{
-		color:inherit;
-	    text-decoration:none;
-	    pointer-events:none;
-	}
-
-	h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
-
-	h1:after {
-		display: block;
-		content: "This CV was printed from aloks.com.np/CV. Please check the same for updated CV.";
-		margin-bottom: 10px;
-		border: 1px solid #bbb;
-		padding: 3px 5px;
-		font-style: italic;
-
-		font-weight: normal;
-		font-size: 12px;
-	}
-
-	body {
-		font-family: Cambria, serif;
-		background: none;
-		color: black;
-	}
-
-	ul {
-		margin-left: 5px;
-	    margin-right: 0px;
-	    padding-left: 10px;
-	    padding-right: 0px;
-	}
-
 }
