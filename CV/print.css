@@ -1,12 +1,12 @@
 @page {
-		size: A4 portrait; 
+		size: A4 portrait; /* Expermimental */
 		margin: 0.75in;
 
 		@top-center {
 			content: "Alok Shrestha";
 		}
 
-		@bottom-right {
+		@right-bottom { /* Expermimental */
 			content: "Page " counter(page);
 		}
 }
@@ -47,14 +47,12 @@ h2:before{
     border:0.5px dashed #d0d0d0;
     border-radius:4px;
     -webkit-border-radius:4px;
-    -moz-border-radius:4px;
     box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
     -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
-    -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
 }
 
-.noprint, label:after, input[type='checkbox'], img{
-	display: none;
+.noprint, label:after, input[type='checkbox'], img, img.whole_content, section>input:checked +h2{
+	display: none !important;
 }
 
 address a:after {

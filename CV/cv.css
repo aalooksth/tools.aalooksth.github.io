@@ -28,12 +28,32 @@ address ul li:first-child{ display: block; }
 address ul li:before { content: "| "; }
 address ul li:first-child:before, address ul li:nth-child(2):before { content: ""; }
 
+#hide_extra:checked ~ * .whole_content{
+	display: none;
+}
+
 def:after{
 	content: ": ";
 }
 
 def{
 	font-weight: bold;
+}
+
+input:checked + label.noprint:before{
+	content: "HIDDEN ";
+}
+
+
+/* Hiding Sections */
+section > input[type=checkbox]{
+	float: left;
+}
+section > input[type=checkbox]:checked ~ *{
+	display: none;
+}
+section > input[type=checkbox]:checked ~ h2{
+	display: block;
 }
 
 .noprint{
@@ -75,6 +95,6 @@ input[type="checkbox"]:checked ~.whole_content{
 	display: block;
 }
 
-input[type="checkbox"]:checked, .whole_content {
+label > input[type="checkbox"]:checked, .whole_content {
 	display: none;
 }

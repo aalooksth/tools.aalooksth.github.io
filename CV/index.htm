@@ -10,6 +10,7 @@
 	<!-- CSS Stylesheet -->
 	<link rel="stylesheet" type="text/css" href="cv.css" />
 	<link rel="stylesheet" type="text/css" href="print.css" media="print">
+	<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
 	<h1>Alok Shrestha</h1>
@@ -25,20 +26,25 @@
 	<p>An initiative-taking, adaptive learner youth with experiences in ETL processes, data analysis, e-Commerce Management and event organization</p>
 
 
-	<div class="noprint">Please Use a digital copy and don't print if, wherever and whenever possible.
+	<div class="noprint">
+		Please Use a digital copy and don't print if, wherever and whenever possible.
 		<ul>
 			<li><button onclick="window.print();">Print</button>This page is Print Friendly just in case. Currently, being optimised for PRINT/Save only. </li>
 			<li>You can hide details by clicking on them.</li>
-			<li>Note: Only currently visible data will be printed.</li>
-		</ul>
-	</div>
+			<li>Note: Only currently visible data will be printed. All images will be avoided while printing.</li>
+		</div>
+	</ul>
+	<div class="noprint">Hide/Check mark what you dont want</div>
+	<input type="checkbox" id="hide_extra" /><label class="noprint" for="hide_extra">All extra details</label>
+	<input type="checkbox" id="tech" /><label class="noprint" for="tech">Technical</label>
 
-	<section>
+	<section id="Personal">
+		<input type="checkbox">
 		<h2>Personal Information</h2>
 		<ul>
 			<li><def>Gender</def>Male</li>
 			<li><def>Nationality</def>Nepali</li>
-			<li><def>Age</def>25 Years as of Sep 17, 2019</li>
+			<li><def>Age</def><noscript>24 years 11 month/s 13 day/s on August 26, 2019</noscript><script type="text/javascript">document.write(getmyAge());</script></li>
 			<li><def>Marital Status</def>Unmarried</li>
 			<li><def>Driving Licence</def>Scooter</li>
 		</ul>
@@ -94,20 +100,33 @@
 	<section>
 		<h2>Skills</h2>
 		<ul>
-			<li><def>Mid-Level</def>Microsoft Excel | Python (pandas, selenium, requests) | Web Scraping | XPATH | e-Commerce Management (Amazon, Americommerce, Shopify, Magento)</li>
-			<li><def>Basic</def>VBA for Excel | HTML | CSS | JavaScript | Microsoft Office | Adobe Photoshop | SQL | Google Shopping</li>
-			<li><def>General</def>Teamwork | Creativity | Time Management | Adaptability and Flexibility | Positive Attitude | leadership | Communicator</li>
+			<li>Technical</li>
+			<ul>
+				<li>Softwares</li>
+				<ul>
+					<li><def>Mid-Level</def>Microsoft Excel | Python (pandas, selenium, requests)</li>
+					<li><def>Basic</def>VBA for Excel | HTML | CSS | JavaScript | Microsoft Office | Adobe Photoshop</li>
+				</ul>
+				<li>Technology</li>
+				<ul>
+					<li><def>Mid-Level</def>Web Scraping | XPATH | e-Commerce Management (Amazon, Americommerce, Shopify, Magento)</li>
+					<li><def>Basic</def>SQL | Google Shopping</li>
+				</ul>
+				
+			</ul>			
+			<li><def>Non-Technical</def>Teamwork | Creativity | Time Management | Adaptability and Flexibility | Positive Attitude | leadership | Communicator</li>
 		</ul>
 	</section>
 
-	<h2>Awards</h2>
-	<ul>
-		<li><label><b>Peter-Margaret Social Service Award (2011)</b>St. Xavier's School
-			<input type="checkbox" checked />
-			<img class='whole_content' src="Awards_Peter Margaret Social Service Award 2010.jpg" /></label></li>
-		<li><b>Sujan Tuladhar Memorial Science Fair Day Award (2011)</b>St. Xavier's School</li>
-	</ul>
-
+	<section>
+		<input type="checkbox">
+		<h2>Awards</h2>
+		<ul>
+			<li><b>Peter-Margaret Social Service Award (2011)</b>St. Xavier's School<br />
+				<img class='whole_content' src="Awards_Peter Margaret Social Service Award 2010.jpg" /></li>
+			<li><b>Sujan Tuladhar Memorial Science Fair Day Award (2011)</b>St. Xavier's School</li>
+		</ul>
+	</section>
 
 	<h2>Language Proficiency</h2>
 	<ul>
@@ -120,22 +139,23 @@
 	<h2>Interests</h2>
 	<p>Traveling, Hiking, Exploring, Photography, Social Service</p>
 
+
 	<section id="organizations">
+		<input type="checkbox">
 		<h2>Involvement in organizations</h2>
 		<ul>
-			<li><b>St. Xavier's College, Kathmandu - Alumni Committee</b></li>
+			<li><b>St. Xavier's College, Kathmandu - Alumni Committee</b>, Kathmandu, Nepal</li>
 			<ul>
 				<li><label>Member, Dec 2018 - Present
 					<input type="checkbox" checked />
 					<div class="whole_content">
-						<p>As an adhoc committee member, my role is to coordinate with the senior and junior alumni members in the team to strengthen the Alumni Committee.</p>
-
+						As an adhoc committee member, my role is to coordinate with the senior and junior alumni members in the team to strengthen the Alumni Committee.
 						<p><b>Tasks Accomplished</b>
 						<ul> 
 							<li>Maintained a healthy relationship among the committee, alumni and the college</li>
 							<li>Organised Workshop on Stress Management</li>
 							<li>Drafted Constitution for Alumni</li>
-						</ul>
+						</ul></p>
 					</div>
 				</label></li>
 				<li><label>Founding President, Feb 2013 - Nov 2017
