@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <style>
+        #photos {
+            /* Prevent vertical gaps */
+            line-height: 0;
+
+            -webkit-column-count: 5;
+            -webkit-column-gap: 0px;
+            -moz-column-count: 5;
+            -moz-column-gap: 0px;
+            column-count: 5;    
+            column-gap: 0px;
+        }
+
+        #photos figure,
+        img {
+            /* Just in case there are inline attributes */
+            width: 100% !important;
+            /* height: auto !important; */
+            /* added */
+            height: 500px !important;
+            margin:0;
+            border: solid black;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        @media (max-width: 1200px) {
+            #photos {
+                -moz-column-count: 4;
+                -webkit-column-count: 4;
+                column-count: 4;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            #photos {
+                -moz-column-count: 3;
+                -webkit-column-count: 3;
+                column-count: 3;
+            }
+        }
+
+        @media (max-width: 800px) {
+            #photos {
+                -moz-column-count: 2;
+                -webkit-column-count: 2;
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 400px) {
+            #photos {
+                -moz-column-count: 1;
+                -webkit-column-count: 1;
+                column-count: 1;
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        figure.zoom {
+            background-position: 50% 50%;
+            position: relative;
+            /* width: 500px; */
+            overflow: hidden;
+            cursor: zoom-in;
+        }
+
+        figure.zoom img:hover {
+            opacity: 0;
+        }
+
+        figure.zoom img {
+            transition: opacity 0.5s;
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <section>
+        <textarea id="out" placeholder="Text to copy" cols="50" rows=8></textarea>
+        <textarea id="info" disabled="disabled" cols="50" rows=8></textarea>
+        <!-- <div id="myresult" class="img-zoom-result"></div> -->
+        <button id="copy">Copy</button>
+        <button id="paste">Paste from clipboard</button>
+        |
+        <button id="showall"
+            onclick="$('figure, img').css('object-fit', 'contain');$('img').css('background-color', 'white');$('.align, #showall').css('display', 'none');$('#maxw').css('display', '');">Show
+            ALL</button>
+        <button id="maxw"
+            onclick="$('figure, img').css('object-fit', 'cover');$('.align, #showall').css('display', '');$('#maxw').css('display', 'none');"
+            style="display: none;">Show max width</button>
+        <button class="align" onclick="$('figure, img').css('object-position', 'top');">Top</button>
+        <button class="align" onclick="$('figure, img').css('object-position', 'center');">Middle</button>
+        <button class="align" onclick="$('figure, img').css('object-position', 'bottom');">Bottom</button>
+    </section>
+    <section id="photos"></section>
+    <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+    <script id="rendered-js">
+        /** Write contents of the textarea to the clipboard when clicking "Copy" */
+        document.querySelector('#copy').addEventListener('click', () => {
+            navigator.clipboard.writeText(document.querySelector('#out').value)
+                .then(() => {
+                    ChromeSamples.log('Text copied.');
+                })
+                .catch(() => {
+                    ChromeSamples.log('Failed to copy text.');
+                });
+        });
+        /** Read from clipboard when clicking the Paste button */
+        document.querySelector('#paste').addEventListener('click', () => {
+            navigator.clipboard.readText()
+                .then(text => {
+                    document.querySelector('#out').value = text;
+
+                    var img_list = [];
+                    var allImages = "";
+                    img_list = text.split('\r\n');
+
+                    const index = img_list.indexOf('');
+                    if (index > -1) {
+                        img_list.splice(index, 1); // 2nd parameter means remove one item only
+                    }
+                    console.log(img_list);
+                    for (var i = 0; i < img_list.length; i++) {
+                        allImages += '<figure class="zoom" onmousemove="zoom(event)" style="background-image: url(http://' + img_list[i] + ')"><img src="http://' + img_list[i] + '" alt="loading" /></figure>';
+
+                    }
+                    document.querySelector('#info').value = 'Number of rows: ' + img_list.length;
+
+                    $('#photos').empty().append(allImages);
+                    console.log('Text pasted.');
+                })
+            // .catch(() => {
+            //     console.log('Failed to read from clipboard.');
+            // });
+        });
+
+        // var img_list = []
+
+        // var allImages = "";
+
+        // for (var i = 0; i < img_list.length; i++) {
+        //     allImages += '<img src="http://' + img_list[i] + '"" alt="loading">';
+        // }
+
+        // $('#photos').append(allImages);
+        function zoom(e) {
+            var zoomer = e.currentTarget;
+            e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+            e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+            x = offsetX / zoomer.offsetWidth * 100
+            y = offsetY / zoomer.offsetHeight * 100
+            zoomer.style.backgroundPosition = x + '% ' + y + '%';
+        }
+    </script>
+</body>
+
+</html>
