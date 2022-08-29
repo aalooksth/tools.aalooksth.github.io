@@ -25,7 +25,7 @@
             /* added */
             height: 500px !important;
             margin:0;
-            border: solid black;
+            border: solid white;
             object-fit: cover;
             object-position: top;
         }
@@ -92,11 +92,12 @@
         <textarea id="out" placeholder="Text to copy" cols="50" rows=8></textarea>
         <textarea id="info" disabled="disabled" cols="50" rows=8></textarea>
         <!-- <div id="myresult" class="img-zoom-result"></div> -->
-        <button id="copy">Copy</button>
+        <!-- <button id="copy">Copy</button> -->
         <button id="paste">Paste from clipboard</button>
+        <button id="disablezoom" onclick="$('figure, img').removeAttr('onmousemove').removeAttr('style');">Disable Zoom</button>
         |
         <button id="showall"
-            onclick="$('figure, img').css('object-fit', 'contain');$('img').css('background-color', 'white');$('.align, #showall').css('display', 'none');$('#maxw').css('display', '');">Show
+            onclick="$('figure, img').css('object-fit', 'contain');$('img').css('background-color', 'black');$('.align, #showall').css('display', 'none');$('#maxw').css('display', '');">Show
             ALL</button>
         <button id="maxw"
             onclick="$('figure, img').css('object-fit', 'cover');$('.align, #showall').css('display', '');$('#maxw').css('display', 'none');"
@@ -109,15 +110,15 @@
     <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
     <script id="rendered-js">
         /** Write contents of the textarea to the clipboard when clicking "Copy" */
-        document.querySelector('#copy').addEventListener('click', () => {
-            navigator.clipboard.writeText(document.querySelector('#out').value)
-                .then(() => {
-                    ChromeSamples.log('Text copied.');
-                })
-                .catch(() => {
-                    ChromeSamples.log('Failed to copy text.');
-                });
-        });
+        // document.querySelector('#copy').addEventListener('click', () => {
+        //     navigator.clipboard.writeText(document.querySelector('#out').value)
+        //         .then(() => {
+        //             ChromeSamples.log('Text copied.');
+        //         })
+        //         .catch(() => {
+        //             ChromeSamples.log('Failed to copy text.');
+        //         });
+        // });
         /** Read from clipboard when clicking the Paste button */
         document.querySelector('#paste').addEventListener('click', () => {
             navigator.clipboard.readText()
@@ -146,6 +147,16 @@
             //     console.log('Failed to read from clipboard.');
             // });
         });
+
+        // document.querySelector('#disablezoom').addEventListener('click', () => {
+        //     navigator.clipboard.writeText(document.querySelector('#out').value)
+        //         .then(() => {
+        //             ChromeSamples.log('Text copied.');
+        //         })
+        //         .catch(() => {
+        //             ChromeSamples.log('Failed to copy text.');
+        //         });
+        // });
 
         // var img_list = []
 
